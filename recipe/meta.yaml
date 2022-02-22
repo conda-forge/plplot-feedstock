@@ -10,7 +10,7 @@ source:
   sha256: b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b
 
 build:
-  number: 0
+  number: 1
   script:
     - set -ex  # [unix]
     - CMAKE_ARGS=${CMAKE_ARGS//-DCMAKE_INSTALL_LIBDIR=lib/}  # [unix]
