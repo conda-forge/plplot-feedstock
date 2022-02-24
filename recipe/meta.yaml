@@ -10,10 +10,34 @@ source:
   sha256: b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b
 
 build:
-  number: 0
+  number: 1
   script:
     - set -ex  # [unix]
     - CMAKE_ARGS=${CMAKE_ARGS//-DCMAKE_INSTALL_LIBDIR=lib/}  # [unix]
+    {% if build_platform != target_platform %}
+    - _MACOSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}  # [osx]
+    - unset MACOSX_DEPLOYMENT_TARGET  # [osx]
+    - >
+       cmake
+       -DCMAKE_C_COMPILER=${CC_FOR_BUILD}
+       -DCMAKE_CXX_COMPILER=${CXX_FOR_BUILD}
+       -DCMAKE_Fortran_COMPILER=${FC_FOR_BUILD}
+       -DCMAKE_C_FLAGS=""
+       -DCMAKE_CXX_FLAGS=""
+       -DCMAKE_Fortran_FLAGS=""
+       -DCMAKE_EXE_LINKER_FLAGS=""
+       -DDEFAULT_NO_DEVICES=ON
+       -DDEFAULT_NO_BINDINGS=ON
+       -DPKG_CONFIG_EXECUTABLE=Not-Found
+       -DENABLE_octave=OFF
+       -DENABLE_tcl=ON
+       -DENABLE_tk=ON
+       -DBUILD_TEST=ON
+       -B_build_native
+       -GNinja
+    - cmake --build _build_native
+    - export MACOSX_DEPLOYMENT_TARGET=${_MACOSX_DEPLOYMENT_TARGET}  # [osx]
+    {% endif %}
     - >
        cmake
        ${CMAKE_ARGS}  # [unix]
@@ -22,10 +46,12 @@ build:
        -DENABLE_tcl=ON
        -DENABLE_tk=ON
        -DBUILD_TEST=ON
+       -DCMAKE_NATIVE_BINARY_DIR=$PWD/_build_native  # [build_platform != target_platform]
+       -DNaNAwareCCompiler=ON  # [build_platform != target_platform]
        -B_build
        -GNinja
     - cmake --build _build
-    - ctest --test-dir _build  # [build_platform == target_platform]
+    - ctest --test-dir _build --output-on-failure  # [build_platform == target_platform]
     - cmake --install _build
 
   run_exports:
