@@ -1,17 +1,29 @@
+c_compiler:
+- vs2017
+cairo:
+- '1.16'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-m2w64_c_compiler:
-- m2w64-toolchain
-m2w64_cxx_compiler:
-- m2w64-toolchain
-m2w64_fortran_compiler:
-- m2w64-toolchain
+cxx_compiler:
+- vs2017
+glib:
+- '2'
+pango:
+- '1.48'
 pin_run_as_build:
+  cairo:
+    max_pin: x.x
+  pango:
+    max_pin: x.x
   tk:
+    max_pin: x.x
+  zlib:
     max_pin: x.x
 target_platform:
 - win-64
 tk:
 - '8.6'
+zlib:
+- '1.2'
