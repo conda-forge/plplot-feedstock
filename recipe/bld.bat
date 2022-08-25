@@ -8,6 +8,7 @@ set "PKG_CONFIG_PATH=%LIBRARY_LIB%\pkgconfig;%LIBRARY_PREFIX%\share\pkgconfig;%B
 :: cmake options
 set ^"CMAKE_OPTIONS=^
        -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+       -DCMAKE_BUILD_TYPE=Release ^
        -DENABLE_octave=OFF ^
        -DENABLE_tcl=ON ^
        -DENABLE_tk=ON ^
