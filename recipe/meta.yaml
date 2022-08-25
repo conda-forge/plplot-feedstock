@@ -18,8 +18,8 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    #- {{ compiler('fortran') }}  # [unix]
-    #- {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('fortran') }}  # [unix]
+    - {{ compiler('m2w64_fortran') }}  # [win]
     - cmake
     - ninja
     - pkg-config
@@ -38,7 +38,7 @@ test:
   commands:
     - pkg-config --exact-version {{ version }} {{ name }}
     - pkg-config --exact-version {{ version }} {{ name }}-tcl
-    #- pkg-config --exact-version {{ version }} {{ name }}-fortran
+    - pkg-config --exact-version {{ version }} {{ name }}-fortran
     - pkg-config --exact-version {{ version }} {{ name }}-c++
 
 about:
