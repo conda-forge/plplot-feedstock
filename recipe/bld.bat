@@ -5,9 +5,9 @@ setlocal EnableExtensions EnableDelayedExpansion
 :: (set as env var so it's used by both meson and during build with g-ir-scanner)
 set "PKG_CONFIG_PATH=%LIBRARY_LIB%\pkgconfig;%LIBRARY_PREFIX%\share\pkgconfig;%BUILD_PREFIX%\Library\lib\pkgconfig"
 
-:: set compilers to clang-cl
-set "CC=clang-cl"
-set "CXX=clang-cl"
+:: set compilers to clang
+set "CC=clang"
+set "CXX=clang++"
 
 :: cmake options
 set ^"CMAKE_OPTIONS=^
