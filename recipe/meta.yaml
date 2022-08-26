@@ -20,6 +20,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('m2w64_fortran') }}  # [win]
+    - clang  # [win]
     - cmake
     - ninja
     - pkg-config
