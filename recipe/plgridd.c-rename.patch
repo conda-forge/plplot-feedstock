@@ -1,0 +1,23 @@
+commit 7b923869e479e9c6497de5668948f5dc7164e79f
+Author: Tom Schoonjans <Tom.Schoonjans@genomicsplc.com>
+Date:   Fri Aug 26 14:04:20 2022 +0530
+
+    rename plgridd.c to plgridd.c to enforce C++ compilation
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 757b4edc8..bb2c8b74e 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -48,7 +48,7 @@ set(plplot_LIB_SRCS
+   plvpor.c
+   plwind.c
+   plbuf.c
+-  plgridd.c
++  plgridd.cpp
+   plvect.c
+   mt19937ar.c
+   pltime.c
+diff --git a/src/plgridd.c b/src/plgridd.cpp
+similarity index 100%
+rename from src/plgridd.c
+rename to src/plgridd.cpp

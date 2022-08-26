@@ -8,6 +8,8 @@ package:
 source:
   url: http://downloads.sourceforge.net/sourceforge/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b
+  patches:
+    - plgridd.c-rename.patch  # [win]
 
 build:
   number: 1
