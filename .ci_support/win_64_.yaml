@@ -13,7 +13,7 @@ glib:
 m2w64_fortran_compiler:
 - m2w64-toolchain
 pango:
-- '1.48'
+- '1.50'
 pin_run_as_build:
   cairo:
     max_pin: x.x
