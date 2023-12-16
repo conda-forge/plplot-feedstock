@@ -28,7 +28,8 @@ requirements:
     - pkg-config
   host:
     - tk
-    - cairo
+    - cairo <1.18  # [win]
+    - cairo        # [not win]
     - pango
     - zlib
     - glib
