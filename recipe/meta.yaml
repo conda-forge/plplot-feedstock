@@ -12,7 +12,7 @@ source:
     - plgridd.c-rename.patch  # [win]
 
 build:
-  number: 2
+  number: 3
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
@@ -28,7 +28,8 @@ requirements:
     - pkg-config
   host:
     - tk
-    - cairo
+    - cairo <1.18  # [win]
+    - cairo        # [not win]
     - pango
     - zlib
     - glib
