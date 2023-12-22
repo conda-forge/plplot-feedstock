@@ -26,7 +26,7 @@ if [[ "$target_platform" == osx* ]]; then
            -DENABLE_tcl=ON \
            -DENABLE_tk=ON \
            -DPLD_xcairo=OFF \
-           -DPLD_xwin=ON \
+           -DPLD_xwin=OFF \
            -DBUILD_TEST=ON \
            -B_build_native \
            -GNinja
