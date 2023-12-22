@@ -26,6 +26,7 @@ if [[ "$target_platform" == osx* ]]; then
            -DENABLE_tcl=ON \
            -DENABLE_tk=ON \
            -DPLD_xcairo=OFF \
+           -DPLD_xwin=ON \
            -DBUILD_TEST=ON \
            -B_build_native \
            -GNinja
@@ -48,6 +49,7 @@ cmake \
     -DENABLE_tcl=ON \
     -DENABLE_tk=ON \
     -DBUILD_TEST=ON \
+    -DPLD_xwin=ON \
     -B_build \
     -GNinja
  
