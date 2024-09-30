@@ -12,13 +12,14 @@ source:
     - plgridd.c-rename.patch  # [win]
 
 build:
-  number: 3
+  number: 4
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('m2w64_fortran') }}  # [win]
