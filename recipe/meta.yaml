@@ -21,8 +21,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}  # [unix]
-    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('fortran') }}
     - clang  # [win]
     - cmake
     - ninja
